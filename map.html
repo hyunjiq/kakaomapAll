@@ -28,9 +28,11 @@
                 ,success: function(mapinfo){
                     console.log("지점정보", mapinfo);
 
-                    $(".storenm span").html(mapinfo[0].storenm)
-                    $(".storeem span").html(mapinfo[0].storeem)
-                    $(".addr span").html(mapinfo[0].addr)
+                    let spanTag = `<h2 class="storenm"><strong>지점명</strong> <span>${mapinfo[0].storenm}</span></h2>`
+                        spanTag +=`<p class="storeem"><strong>지점장</strong> <span>${mapinfo[0].storeem}</span></p>`
+                        spanTag +=`<p class="addr"><strong>주소</strong> <span>${mapinfo[0].addr}</span></p>`
+                    
+                    
                 }
                 ,error: function(){
 
