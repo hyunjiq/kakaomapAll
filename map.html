@@ -28,10 +28,20 @@
                 ,success: function(mapinfo){
                     console.log("지점정보", mapinfo);
 
-                    let spanTag = `<h2 class="storenm"><strong>지점명</strong> <span>${mapinfo[0].storenm}</span></h2>`
-                        spanTag +=`<p class="storeem"><strong>지점장</strong> <span>${mapinfo[0].storeem}</span></p>`
-                        spanTag +=`<p class="addr"><strong>주소</strong> <span>${mapinfo[0].addr}</span></p>`
+                    let mapTag =``;//반드시 초기값 선언은 for, forEach안에서 하지 않는다.
                     
+                    mapinfo.forEach((ele,idx)=>{
+                        mapTag += `<li>`;
+                        mapTag +=`<h2 class="storenm"><strong>지점명</strong> <span>${ele.storenm}</span></h2>`;
+                        mapTag +=`<p class="storeem"><strong>지점장</strong> <span>${ele.storeem}</span></p>`;
+                        mapTag +=`<p class="addr"><strong>주소</strong> <span>${ele.addr}</span></p>`;
+                        mapTag +=`<p class="storetel"><strong>번호</strong> <span>${ele.storetel}</span></p>`;
+                        //데이터에 따라서 커스터마이징
+                        mapTag +=`</li>`;
+                    })
+                    
+                    
+                        $("#store ul").html(mapTag);
                     
                 }
                 ,error: function(){
